@@ -2,12 +2,14 @@ import React from "react";
 import { StyleSheet, View, ImageBackground, Image, Text } from "react-native";
 
 import colors from "../config/colors";
+import AppButton from "../components/AppButton";
 
 function WelcomeScreen() {
   return (
     <ImageBackground
       source={require("../assets/background.jpg")}
       style={styles.background}
+      blurRadius={5}
     >
       {/* View container holding the logo and the text */}
       <View style={styles.logoContainer}>
@@ -19,8 +21,12 @@ function WelcomeScreen() {
       </View>
       {/* View container holding the two colors */}
       <View style={styles.buttonContainer}>
-        <View style={styles.loginButton}></View>
-        <View style={styles.registerButton}></View>
+        <View style={styles.loginButton}>
+          <AppButton color={colors.primary}>LOGIN</AppButton>
+        </View>
+        <View style={styles.registerButton}>
+          <AppButton color={colors.secondary}>REGISTER</AppButton>
+        </View>
       </View>
     </ImageBackground>
   );
@@ -29,10 +35,13 @@ function WelcomeScreen() {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    resizeMode: "cover",
   },
   buttonContainer: {
     flex: 1,
     justifyContent: "flex-end",
+    alignItems: "center",
+    bottom: 30,
   },
   logoContainer: {
     flex: 0.8,
@@ -44,14 +53,12 @@ const styles = StyleSheet.create({
     width: 125,
   },
   loginButton: {
-    width: "100%",
+    width: "90%",
     height: 70,
-    backgroundColor: colors.primary,
   },
   registerButton: {
-    width: "100%",
+    width: "90%",
     height: 70,
-    backgroundColor: colors.secondary,
   },
 });
 
