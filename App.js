@@ -5,10 +5,11 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import AppButton from "./app/components/AppButton";
+import Card from "./app/components/Card";
 import colors from "./app/config/colors";
 
 export default function App() {
-  return <WelcomeScreen></WelcomeScreen>;
+  return <Card></Card>;
 }
 
 const styles = StyleSheet.create({

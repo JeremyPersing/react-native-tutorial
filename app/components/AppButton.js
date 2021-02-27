@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontFamily: "Arial",
     fontSize: 20,
+    fontWeight: "bold",
     justifyContent: "center",
     alignItems: "center",
   },

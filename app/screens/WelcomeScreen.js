@@ -9,7 +9,7 @@ function WelcomeScreen() {
     <ImageBackground
       source={require("../assets/background.jpg")}
       style={styles.background}
-      blurRadius={5}
+      blurRadius={8}
     >
       {/* View container holding the logo and the text */}
       <View style={styles.logoContainer}>
