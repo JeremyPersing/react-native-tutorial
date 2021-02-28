@@ -2,6 +2,7 @@ import React from "react";
 import { View, Image, StyleSheet, Text } from "react-native";
 
 import colors from "../config/colors";
+// Still need to modularize the code and allow for props
 
 function Card(props) {
   return (
@@ -9,13 +10,10 @@ function Card(props) {
     <View style={styles.mainContainer}>
       <View style={styles.cardContainer}>
         <View style={styles.card}>
-          <Image
-            source={require("../assets/jacket.jpg")} //props.image}
-            style={styles.image}
-          ></Image>
+          <Image source={props.image} style={styles.image}></Image>
           <View style={styles.titleContainer}>
-            <Text style={[styles.text, styles.title]}>Red Jacket for Sale</Text>
-            <Text style={[styles.text, styles.price]}>$100</Text>
+            <Text style={[styles.text, styles.title]}>{props.title}</Text>
+            <Text style={[styles.text, styles.price]}>{props.subTitle}</Text>
           </View>
         </View>
       </View>
