@@ -3,6 +3,7 @@ import { StyleSheet, View, ImageBackground, Image, Text } from "react-native";
 
 import colors from "../config/colors";
 import AppButton from "../components/AppButton";
+import AppText from "../components/AppText";
 
 function WelcomeScreen() {
   return (
@@ -17,7 +18,7 @@ function WelcomeScreen() {
           source={require("../assets/logo-red.png")}
           style={styles.logo}
         ></Image>
-        <Text>Sell What You Don't Need</Text>
+        <AppText>Sell What You Don't Need</AppText>
       </View>
       {/* View container holding the two colors */}
       <View style={styles.buttonContainer}>

@@ -7,22 +7,43 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import AppButton from "./app/components/AppButton";
 import Card from "./app/components/Card";
 import colors from "./app/config/colors";
-import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen"; //Still need to allow for props
 
-/*<Card
+/*
+    <ListingDetailsScreen
       title="Red jacket for sale!"
       subTitle="$100"
-      image={require("./app/assets/jacket.jpg")}
-    ></Card>*/
+      itemImage={require("./app/assets/jacket.jpg")}
+      userImage={require("./app/assets/mosh.jpg")}
+      userName="Mosh Hamedani"
+    ></ListingDetailsScreen>
+
+    <Card
+        title="Red jacket for sale!"
+        subTitle="$100"
+        image={require("./app/assets/jacket.jpg")}
+      ></Card>
+      <Card
+        title="Red jacket for sale!"
+        subTitle="$100"
+        image={require("./app/assets/jacket.jpg")}
+      ></Card>
+    */
 
 export default function App() {
-  return <ListingDetailsScreen></ListingDetailsScreen>;
+  return (
+    <ListingDetailsScreen
+      title="Red jacket for sale!"
+      subTitle="$100"
+      itemImage={require("./app/assets/jacket.jpg")}
+      userImage={require("./app/assets/mosh.jpg")}
+      userName="Mosh Hamedani"
+    ></ListingDetailsScreen>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    paddingTop: 20,
   },
 });
