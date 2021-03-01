@@ -71,7 +71,9 @@ const styles = StyleSheet.create({
     fontFamily: "Arial",
     left: 20,
   },
-  title: {},
+  title: {
+    fontWeight: "500",
+  },
   subTitle: {
     color: colors.secondary,
     top: 10,
