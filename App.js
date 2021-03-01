@@ -14,8 +14,6 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen"; //Still n
       title="Red jacket for sale!"
       subTitle="$100"
       itemImage={require("./app/assets/jacket.jpg")}
-      userImage={require("./app/assets/mosh.jpg")}
-      userName="Mosh Hamedani"
     ></ListingDetailsScreen>
 
     <Card
@@ -36,8 +34,6 @@ export default function App() {
       title="Red jacket for sale!"
       subTitle="$100"
       itemImage={require("./app/assets/jacket.jpg")}
-      userImage={require("./app/assets/mosh.jpg")}
-      userName="Mosh Hamedani"
     ></ListingDetailsScreen>
   );
 }
