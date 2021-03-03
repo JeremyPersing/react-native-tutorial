@@ -8,7 +8,8 @@ import AppButton from "./app/components/AppButton";
 import Card from "./app/components/Card";
 import colors from "./app/config/colors";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen"; //Still need to allow for props
-
+import MessagesScreen from "./app/screens/MessagesScreen";
+import MyAccountScreen from "./app/screens/MyAccountScreen";
 /*
     <ListingDetailsScreen
       title="Red jacket for sale!"
@@ -29,17 +30,11 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen"; //Still n
     */
 
 export default function App() {
-  return (
-    <ListingDetailsScreen
-      title="Red jacket for sale!"
-      subTitle="$100"
-      itemImage={require("./app/assets/jacket.jpg")}
-    ></ListingDetailsScreen>
-  );
+  return <MyAccountScreen />;
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    backgroundColor: colors.medium,
   },
 });

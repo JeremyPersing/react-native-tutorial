@@ -6,8 +6,8 @@ import colors from "../config/colors";
 
 function ViewImageScreen() {
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.topContainer}>
+    <View style={styles.container}>
+      <View style={styles.iconContainer}>
         <MaterialCommunityIcons
           name="close"
           size={40}
@@ -25,14 +25,21 @@ function ViewImageScreen() {
         source={require("../assets/chair.jpg")}
         style={styles.image}
       ></ImageBackground>
-      <View style={styles.bottomContainer}></View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  bottomContainer: {
-    flex: 0.15,
+  container: {
+    flex: 1,
+    backgroundColor: colors.black,
+    justifyContent: "center",
+  },
+  iconContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    bottom: 70,
   },
   closeIcon: {
     left: 20,
@@ -41,19 +48,9 @@ const styles = StyleSheet.create({
     right: 20,
   },
   image: {
-    flex: 0.6,
     resizeMode: "contain",
-  },
-  mainContainer: {
-    flex: 1,
-    backgroundColor: colors.black,
-    justifyContent: "center",
-  },
-  topContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flex: 0.25,
+    width: "100%",
+    height: 600,
   },
 });
 

@@ -3,7 +3,7 @@ import { View, StyleSheet, Image } from "react-native";
 
 import colors from "../config/colors";
 import AppText from "../components/AppText";
-import ListingItem from "../components/ListingItem";
+import ListItem from "../components/ListItem";
 
 function ListingDetailsScreen({ title, subTitle, itemImage }) {
   return (
@@ -14,10 +14,11 @@ function ListingDetailsScreen({ title, subTitle, itemImage }) {
         <AppText style={styles.price}>{subTitle}</AppText>
       </View>
       <View style={{ marginTop: 30 }}>
-        <ListingItem
-          userImage={require("../assets/mosh.jpg")}
-          userName="Mosh Hamedani"
-        ></ListingItem>
+        <ListItem
+          image={require("../assets/mosh.jpg")}
+          title="Mosh Hamedani"
+          subTitle="5 Listings"
+        ></ListItem>
       </View>
     </View>
   );
