@@ -25,15 +25,15 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     padding: 15,
+    backgroundColor: colors.white,
   },
   image: {
     height: 100,
     width: 100,
-    left: 15,
     borderRadius: 50,
   },
   textContainer: {
-    paddingLeft: 30,
+    paddingLeft: 15,
   },
   title: {
     fontWeight: "500",

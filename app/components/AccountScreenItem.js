@@ -1,40 +1,44 @@
 import React from "react";
 import { TouchableHighlight, StyleSheet, View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../config/colors";
 import AppText from "./AppText";
+import Icon from "./Icon";
 
-function AccountScreenOption({ title, color, iconName }) {
+function AccountScreenOption({
+  title,
+  iconName,
+  iconColor,
+  iconBackgroundColor,
+}) {
   return (
-    <View style={styles.container}>
-      <View style={[styles.icon, { backgroundColor: color }]}>
-        <MaterialCommunityIcons
+    <TouchableHighlight
+      underlayColor={colors.light}
+      onPress={() => console.log()}
+    >
+      <View style={styles.container}>
+        <Icon
           name={iconName}
-          size={iconSize}
-          color={colors.white}
-        />
+          size={24}
+          color={iconColor}
+          bgColor={iconBackgroundColor}
+        ></Icon>
+        <AppText style={styles.text}>{title}</AppText>
       </View>
-      <AppText style={styles.text}>{title}</AppText>
-    </View>
+    </TouchableHighlight>
   );
 }
-
-const iconSize = 48;
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: colors.white,
   },
   text: {
     fontWeight: "500",
-  },
-  icon: {
-    borderRadius: 50,
-    marginRight: 5,
-    marginLeft: 10,
-    padding: 3,
   },
 });
 

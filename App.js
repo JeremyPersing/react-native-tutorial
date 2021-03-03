@@ -30,7 +30,7 @@ import MyAccountScreen from "./app/screens/MyAccountScreen";
     */
 
 export default function App() {
-  return <MyAccountScreen />;
+  return <MyAccountScreen></MyAccountScreen>;
 }
 
 const styles = StyleSheet.create({
