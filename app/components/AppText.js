@@ -11,8 +11,10 @@ function AppText({ children, style }) {
 
 const styles = StyleSheet.create({
   text: {
+    flexDirection: "row",
     fontSize: 18,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
+    flexShrink: 2,
   },
 });
 export default AppText;

@@ -3,57 +3,55 @@ import { View, StyleSheet, FlatList } from "react-native";
 
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
-import AccountScreenItem from "../components/AccountScreenItem";
 import colors from "../config/colors";
 import ListItemSeparator from "../components/ListItemSeparator";
+import Icon from "../components/Icon";
 
 const options = [
   {
-    id: 1,
     title: "My Listings",
-    color: colors.white,
-    bgColor: colors.primary,
-    iconName: "format-list-bulleted",
+    icon: {
+      iconName: "format-list-bulleted",
+      bgColor: colors.primary,
+    },
   },
   {
-    id: 2,
     title: "My Messages",
-    color: colors.white,
-    bgColor: colors.secondary,
-    iconName: "email",
+    icon: {
+      iconName: "email",
+      bgColor: colors.secondary,
+    },
   },
 ];
 
 function MyAccountScreen() {
   return (
     <Screen style={styles.fullContainer}>
-      <View style={styles.topContainer}>
+      <View style={styles.container}>
         <ListItem
           title="Mosh Hamedari"
           subTitle="programmingwithmosh@gmail.com"
           image={require("../assets/mosh.jpg")}
         ></ListItem>
       </View>
-      <View style={styles.middleContainer}>
+      <View style={styles.container}>
         <FlatList
           data={options}
-          keyExtractor={(option) => option.id}
+          keyExtractor={(options) => options.title}
           renderItem={({ item }) => (
-            <AccountScreenItem
+            <ListItem
               title={item.title}
-              iconName={item.iconName}
-              iconColor={item.color}
-              iconBackgroundColor={item.bgColor}
-            ></AccountScreenItem>
+              IconComponent={
+                <Icon name={item.icon.iconName} bgColor={item.icon.bgColor} />
+              }
+            ></ListItem>
           )}
           ItemSeparatorComponent={ListItemSeparator}
         ></FlatList>
       </View>
-      <AccountScreenItem
+      <ListItem
         title="Log Out"
-        iconName="logout"
-        iconColor={colors.white}
-        iconBackgroundColor={colors.warning}
+        IconComponent={<Icon name="logout" bgColor="#ffe66d" />}
       />
     </Screen>
   );
@@ -63,14 +61,8 @@ const styles = StyleSheet.create({
   fullContainer: {
     backgroundColor: colors.light,
   },
-  topContainer: {
-    marginBottom: 30,
-  },
-  middleContainer: {
-    marginBottom: 15,
-  },
-  text: {
-    fontSize: 10,
+  container: {
+    marginVertical: 30,
   },
 });
 
