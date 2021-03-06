@@ -10,6 +10,8 @@ import colors from "./app/config/colors";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen"; //Still need to allow for props
 import MessagesScreen from "./app/screens/MessagesScreen";
 import AccountScreen from "./app/screens/AccountScreen";
+import ListingsScreen from "./app/screens/ListingsScreen";
+
 /*
     <ListingDetailsScreen
       title="Red jacket for sale!"
@@ -30,7 +32,7 @@ import AccountScreen from "./app/screens/AccountScreen";
     */
 
 export default function App() {
-  return <AccountScreen></AccountScreen>;
+  return <ListingsScreen></ListingsScreen>;
 }
 
 const styles = StyleSheet.create({

@@ -6,9 +6,9 @@ import AppText from "./AppText";
 // Allow for mutliple different cards on the same page and
 // use Apptext on the rest of the screens
 
-function Card({ image, title, subTitle }) {
+function Card({ image, title, subTitle, style }) {
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, style]}>
       <Image source={image} style={styles.image}></Image>
       <View style={styles.titleContainer}>
         <AppText style={styles.title}>{title}</AppText>

@@ -21,7 +21,7 @@ const initialMessages = [
   },
 ];
 
-function MessagesScreen(props) {
+function MessagesScreen() {
   // State for the messages array
   const [messages, setMessages] = useState(initialMessages);
   const [refreshing, setRefreshing] = useState(false);
