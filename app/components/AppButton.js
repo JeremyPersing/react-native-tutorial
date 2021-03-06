@@ -6,10 +6,12 @@ import defaultStyles from "../config/styles";
 
 // Pass the words that go on the button as a child
 // implemented as such: <Button>Hello</Button>
-function AppButton({ color, title }) {
+function AppButton({ color, title, ...otherProps }) {
   return (
-    // Overrride the
-    <TouchableOpacity style={[styles.button, { backgroundColor: color }]}>
+    <TouchableOpacity
+      style={[styles.button, color && { backgroundColor: color }]}
+      {...otherProps}
+    >
       <View style={styles.textContainer}>
         <AppText style={[defaultStyles.text, styles.text]}>{title}</AppText>
       </View>
@@ -23,8 +25,8 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.primary,
     borderRadius: 50,
     height: 50,
+    marginVertical: 10,
     justifyContent: "center",
-    margin: 10,
     width: "100%",
   },
   text: {
