@@ -12,22 +12,14 @@ function WelcomeScreen() {
       style={styles.background}
       blurRadius={8}
     >
-      {/* View container holding the logo and the text */}
-      <View style={styles.logoContainer}>
-        <Image
-          source={require("../assets/logo-red.png")}
-          style={styles.logo}
-        ></Image>
-        <AppText>Sell What You Don't Need</AppText>
-      </View>
-      {/* View container holding the two colors */}
+      <Image
+        source={require("../assets/logo-red.png")}
+        style={styles.logo}
+      ></Image>
+      <AppText style={styles.logoText}>Sell What You Don't Need</AppText>
       <View style={styles.buttonContainer}>
-        <View style={styles.loginButton}>
-          <AppButton color={colors.primary}>LOGIN</AppButton>
-        </View>
-        <View style={styles.registerButton}>
-          <AppButton color={colors.secondary}>REGISTER</AppButton>
-        </View>
+        <AppButton color={colors.primary} title="LOGIN" />
+        <AppButton color={colors.secondary} title="REGISTER" />
       </View>
     </ImageBackground>
   );
@@ -35,31 +27,27 @@ function WelcomeScreen() {
 
 const styles = StyleSheet.create({
   background: {
+    alignItems: "center",
     flex: 1,
     resizeMode: "cover",
   },
   buttonContainer: {
+    alignItems: "center",
     flex: 1,
     justifyContent: "flex-end",
-    alignItems: "center",
-    bottom: 30,
-  },
-  logoContainer: {
-    flex: 0.8,
-    justifyContent: "center",
-    alignItems: "center",
+    width: "90%",
+    marginBottom: 20,
   },
   logo: {
-    height: 125,
-    width: 125,
+    alignSelf: "center",
+    height: 100,
+    marginTop: 75,
+    width: 100,
   },
-  loginButton: {
-    width: "90%",
-    height: 70,
-  },
-  registerButton: {
-    width: "90%",
-    height: 70,
+  logoText: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginTop: 15,
   },
 });
 

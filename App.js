@@ -1,5 +1,12 @@
-import React from "react";
-import { View, StyleSheet, Text, Platform } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Platform,
+  TextInput,
+  Switch,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -11,6 +18,10 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen"; //Still n
 import MessagesScreen from "./app/screens/MessagesScreen";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import Screen from "./app/components/Screen";
+import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+import LoginScreen from "./app/screens/LoginScreen";
 
 /*
     <ListingDetailsScreen
@@ -32,11 +43,5 @@ import ListingsScreen from "./app/screens/ListingsScreen";
     */
 
 export default function App() {
-  return <ListingsScreen></ListingsScreen>;
+  return <WelcomeScreen />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.medium,
-  },
-});

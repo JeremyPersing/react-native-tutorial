@@ -1,16 +1,17 @@
 import React from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
+import AppText from "./AppText";
 
-import colors from "../config/colors";
+import defaultStyles from "../config/styles";
 
 // Pass the words that go on the button as a child
 // implemented as such: <Button>Hello</Button>
-function AppButton(props) {
+function AppButton({ color, title }) {
   return (
     // Overrride the
-    <TouchableOpacity style={[styles.button, { backgroundColor: props.color }]}>
+    <TouchableOpacity style={[styles.button, { backgroundColor: color }]}>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{props.children}</Text>
+        <AppText style={[defaultStyles.text, styles.text]}>{title}</AppText>
       </View>
     </TouchableOpacity>
   );
@@ -18,23 +19,18 @@ function AppButton(props) {
 
 const styles = StyleSheet.create({
   button: {
-    width: "100%",
-    height: 50,
+    alignItems: "center",
+    backgroundColor: defaultStyles.colors.primary,
     borderRadius: 50,
-    backgroundColor: colors.primary,
+    height: 50,
+    justifyContent: "center",
+    margin: 10,
+    width: "100%",
   },
   text: {
-    color: colors.white,
-    fontFamily: "Arial",
+    color: defaultStyles.colors.white,
     fontSize: 20,
     fontWeight: "bold",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  textContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
 

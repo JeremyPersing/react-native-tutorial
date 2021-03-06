@@ -42,9 +42,9 @@ function ListingsScreen(props) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.light,
+    padding: 20,
   },
   card: {
-    marginHorizontal: 20,
     marginVertical: 10,
   },
 });
