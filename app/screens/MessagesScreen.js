@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlatList } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 
 import {
   ListItem,
@@ -35,7 +35,7 @@ function MessagesScreen() {
   };
 
   return (
-    <Screen>
+    <Screen style={styles.screen}>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
@@ -45,6 +45,7 @@ function MessagesScreen() {
             subTitle={item.description}
             image={item.image}
             onPress={() => console.log("Message selected: ", item)}
+            showChevrons={true}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}
@@ -66,5 +67,11 @@ function MessagesScreen() {
     </Screen>
   );
 }
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
+});
 
 export default MessagesScreen;
