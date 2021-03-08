@@ -3,7 +3,6 @@ import { useFormikContext } from "formik";
 
 import AppPicker from "../AppPicker";
 import ErrorMessage from "./ErrorMessage";
-import colors from "../../config/colors";
 
 function AppFormPicker({ items, name, placeholder }) {
   const { errors, setFieldValue, touched, values } = useFormikContext();

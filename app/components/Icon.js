@@ -9,8 +9,8 @@ function Icon({ name, size, color, bgColor }) {
     <View style={[styles.icon, { backgroundColor: bgColor }]}>
       <MaterialCommunityIcons
         name={name}
-        size={size || 24}
-        color={color || colors.white}
+        size={size ? size : 24}
+        color={color ? color : colors.white}
       />
     </View>
   );
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginRight: 10,
     marginLeft: 10,
-    padding: 10,
+    padding: 15,
   },
 });
 

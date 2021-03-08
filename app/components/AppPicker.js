@@ -13,15 +13,9 @@ import defaultStyles from "../config/styles";
 import AppText from "./AppText";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
+import PickerIcon from "./PickerIcon";
 
-function AppPicker({
-  icon,
-  items,
-  labelColor,
-  onSelectItem,
-  placeholder,
-  selectedItem,
-}) {
+function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -55,15 +49,27 @@ function AppPicker({
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
-            renderItem={({ item }) => (
-              <PickerItem
-                label={item.label}
-                onPress={() => {
-                  setModalVisible(false);
-                  onSelectItem(item);
-                }}
-              />
-            )}
+            renderItem={({ item }) =>
+              item.length === 2 ? (
+                <PickerItem
+                  label={item.label}
+                  onPress={() => {
+                    setModalVisible(false);
+                    onSelectItem(item);
+                  }}
+                />
+              ) : (
+                <PickerIcon
+                  backgroundColor={item.backgroundColor}
+                  icon={item.icon}
+                  label={item.label}
+                  onPress={() => {
+                    setModalVisible(false);
+                    onSelectItem(item);
+                  }}
+                />
+              )
+            }
           />
         </Screen>
       </Modal>
@@ -88,6 +94,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   text: {
+    flex: 1,
+  },
+  listScreen: {
     flex: 1,
   },
 });
