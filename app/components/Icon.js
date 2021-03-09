@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../config/colors";
 
-function Icon({ name, size, color, bgColor }) {
+function Icon({ name, size = 24, color = colors.white, bgColor }) {
   return (
     <View style={[styles.icon, { backgroundColor: bgColor }]}>
       <MaterialCommunityIcons
@@ -18,9 +18,7 @@ function Icon({ name, size, color, bgColor }) {
 
 const styles = StyleSheet.create({
   icon: {
-    borderRadius: 50,
-    marginRight: 10,
-    marginLeft: 10,
+    borderRadius: 100,
     padding: 15,
   },
 });

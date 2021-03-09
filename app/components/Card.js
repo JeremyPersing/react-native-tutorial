@@ -3,16 +3,18 @@ import { View, Image, StyleSheet, Text } from "react-native";
 
 import colors from "../config/colors";
 import AppText from "./AppText";
-// Allow for mutliple different cards on the same page and
-// use Apptext on the rest of the screens
 
-function Card({ image, title, subTitle, style }) {
+function Card({ image, title, subTitle, style, ...otherProps }) {
   return (
     <View style={[styles.card, style]}>
       <Image source={image} style={styles.image}></Image>
       <View style={styles.titleContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+        <AppText style={styles.title} {...otherProps}>
+          {title}
+        </AppText>
+        <AppText style={styles.subTitle} {...otherProps}>
+          {subTitle}
+        </AppText>
       </View>
     </View>
   );

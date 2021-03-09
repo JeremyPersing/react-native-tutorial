@@ -32,6 +32,7 @@ function ListingsScreen(props) {
             title={item.title}
             subTitle={"$" + item.price}
             style={styles.card}
+            numberOfLines={1}
           ></Card>
         )}
       ></FlatList>
