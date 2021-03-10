@@ -1,13 +1,7 @@
-import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  Platform,
-  TextInput,
-  Switch,
-} from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { useEffect, useState } from "react";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
+import { Image } from "react-native";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
@@ -24,26 +18,28 @@ import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
-
-/*
-    <ListingDetailsScreen
-      title="Red jacket for sale!"
-      subTitle="$100"
-      itemImage={require("./app/assets/jacket.jpg")}
-    ></ListingDetailsScreen>
-
-    <Card
-        title="Red jacket for sale!"
-        subTitle="$100"
-        image={require("./app/assets/jacket.jpg")}
-      ></Card>
-      <Card
-        title="Red jacket for sale!"
-        subTitle="$100"
-        image={require("./app/assets/jacket.jpg")}
-      ></Card>
-    */
+import ImageInput from "./app/components/ImageInput";
 
 export default function App() {
-  return <ListingEditScreen />;
+  const [imageUri, setImageUri] = useState();
+  const requestPermission = async () => {
+    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!granted) alert("You need to enable permission to access the library.");
+  };
+
+  useEffect(() => {
+    requestPermission();
+  }, []);
+
+  return (
+    <Screen>
+      <ImageInput
+        imageUri={imageUri}
+        onChangeImage={(uri) => {
+          console.log("The image uri is" + uri);
+          setImageUri(uri);
+        }}
+      />
+    </Screen>
+  );
 }
