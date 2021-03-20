@@ -22,7 +22,11 @@ function ImageInputList({ imageUris = [], onRemoveImage, onAddImage }) {
               />
             </View>
           ))}
-          <ImageInput onChangeImage={(uri) => onAddImage(uri)} />
+          <ImageInput
+            onChangeImage={(uri) => {
+              onAddImage(uri);
+            }}
+          />
         </View>
       </ScrollView>
     </View>

@@ -41,11 +41,10 @@ function ImageInput({ imageUri, onChangeImage }) {
         quality: 0.5,
       });
       if (!result.cancelled) {
-        console.log("Be selecting image uri " + result.uri);
         onChangeImage(result.uri);
       }
     } catch (error) {
-      console.log("Error occurred", error);
+      console.log("Error occurred in line 48 of ImageInput", error);
     }
   };
 
