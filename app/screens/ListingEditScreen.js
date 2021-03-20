@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
+import useLocation from "../hooks/useLocation";
 
 import {
   AppForm,
@@ -58,6 +59,7 @@ const categories = [
 ];
 
 function ListingEditScreen() {
+  const location = useLocation();
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -68,7 +70,7 @@ function ListingEditScreen() {
           category: null,
           images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={() => console.log(location)}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
