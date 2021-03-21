@@ -5,7 +5,7 @@ import Card from "../components/Card";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 
-function ListingsScreen(props) {
+function ListingsScreen() {
   const listingItems = [
     {
       id: 1,

@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, View, ImageBackground, Image, Text } from "react-native";
+import { StyleSheet, View, ImageBackground, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import colors from "../config/colors";
 import AppButton from "../components/AppButton";
@@ -18,8 +19,16 @@ function WelcomeScreen() {
       ></Image>
       <AppText style={styles.logoText}>Sell What You Don't Need</AppText>
       <View style={styles.buttonContainer}>
-        <AppButton color={colors.primary} title="LOGIN" />
-        <AppButton color={colors.secondary} title="REGISTER" />
+        <AppButton
+          color={colors.primary}
+          navigationDestination="Login"
+          title="LOGIN"
+        />
+        <AppButton
+          color={colors.secondary}
+          navigationDestination="Register"
+          title="REGISTER"
+        />
       </View>
     </ImageBackground>
   );

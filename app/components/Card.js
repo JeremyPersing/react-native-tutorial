@@ -1,22 +1,31 @@
 import React from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
+import {
+  View,
+  Image,
+  StyleSheet,
+  TouchableWithoutFeedback,
+} from "react-native";
 
 import colors from "../config/colors";
 import AppText from "./AppText";
 
 function Card({ image, title, subTitle, style, ...otherProps }) {
   return (
-    <View style={[styles.card, style]}>
-      <Image source={image} style={styles.image}></Image>
-      <View style={styles.titleContainer}>
-        <AppText style={styles.title} {...otherProps}>
-          {title}
-        </AppText>
-        <AppText style={styles.subTitle} {...otherProps}>
-          {subTitle}
-        </AppText>
+    <TouchableWithoutFeedback
+      onPress={() => navigation.navigate(navigationDestination)}
+    >
+      <View style={[styles.card, style]}>
+        <Image source={image} style={styles.image}></Image>
+        <View style={styles.titleContainer}>
+          <AppText style={styles.title} {...otherProps}>
+            {title}
+          </AppText>
+          <AppText style={styles.subTitle} {...otherProps}>
+            {subTitle}
+          </AppText>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 

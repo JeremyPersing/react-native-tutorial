@@ -1,15 +1,18 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
-import AppText from "./AppText";
+import { useNavigation } from "@react-navigation/native";
 
+import AppText from "./AppText";
 import defaultStyles from "../config/styles";
 
 // Pass the words that go on the button as a child
 // implemented as such: <Button>Hello</Button>
-function AppButton({ color, title, ...otherProps }) {
+function AppButton({ color, title, navigationDestination, ...otherProps }) {
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       style={[styles.button, color && { backgroundColor: color }]}
+      onPress={() => navigation.navigate(navigationDestination)}
       {...otherProps}
     >
       <View style={styles.textContainer}>
