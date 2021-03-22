@@ -20,7 +20,7 @@ const options = [
       iconName: "email",
       bgColor: colors.secondary,
     },
-    navigationDestination: "Messages",
+    targetScreen: "Messages",
     title: "My Messages",
   },
 ];
@@ -41,7 +41,7 @@ function MyAccountScreen({ navigation }) {
           keyExtractor={(options) => options.title}
           renderItem={({ item }) => (
             <ListItem
-              onPress={() => navigation.navigate(item.navigationDestination)}
+              onPress={() => navigation.navigate(item.targetScreen)}
               title={item.title}
               IconComponent={
                 <Icon name={item.icon.iconName} bgColor={item.icon.bgColor} />

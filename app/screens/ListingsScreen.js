@@ -5,7 +5,7 @@ import Card from "../components/Card";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 
-function ListingsScreen() {
+function ListingsScreen({ navigation }) {
   const listingItems = [
     {
       id: 1,
@@ -32,7 +32,7 @@ function ListingsScreen() {
             title={item.title}
             subTitle={"$" + item.price}
             style={styles.card}
-            navigationDestination={item.id}
+            onPress={() => navigation.navigate("ListingDetails", item)}
             numberOfLines={1}
           ></Card>
         )}

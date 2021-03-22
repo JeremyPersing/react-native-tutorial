@@ -7,12 +7,11 @@ import defaultStyles from "../config/styles";
 
 // Pass the words that go on the button as a child
 // implemented as such: <Button>Hello</Button>
-function AppButton({ color, title, navigationDestination, ...otherProps }) {
-  const navigation = useNavigation();
+function AppButton({ color, title, onPress, ...otherProps }) {
   return (
     <TouchableOpacity
       style={[styles.button, color && { backgroundColor: color }]}
-      onPress={() => navigation.navigate(navigationDestination)}
+      onPress={onPress}
       {...otherProps}
     >
       <View style={styles.textContainer}>

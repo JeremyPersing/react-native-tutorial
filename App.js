@@ -1,17 +1,17 @@
 import React from "react";
-import { Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import AppNavigator from "./app/navigation/AppNavigator";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
-import AuthNavigator from "./app/components/navigators/AuthNavigator";
+import AuthNavigator from "./app/navigation/AuthNavigator";
 import colors from "./app/config/colors";
 import { createStackNavigator } from "@react-navigation/stack";
+import navigationTheme from "./app/navigation/navigationTheme";
 
 const ListingDetailsScreenOne = () => (
   <ListingDetailsScreen
@@ -59,10 +59,30 @@ const AccountNavigator = () => (
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => (
-  <Tab.Navigator>
-    <Tab.Screen name="Feed" component={ListingNavigator} />
+  <Tab.Navigator
+    tabBarOptions={{
+      activeTintColor: colors.primary,
+    }}
+  >
+    <Tab.Screen
+      name="Feed"
+      component={ListingNavigator}
+      options={{
+        tabBarIcon: ({ size, color }) => (
+          <MaterialCommunityIcons name="home" size={size} color={color} />
+        ),
+      }}
+    />
     <Tab.Screen name="New Listing" component={ListingEditScreen} />
-    <Tab.Screen name="Account" component={AccountNavigator} />
+    <Tab.Screen
+      name="Account"
+      component={AccountNavigator}
+      options={{
+        tabBarIcon: ({ size, color }) => (
+          <Feather name="user" size={size} color={color} />
+        ),
+      }}
+    />
   </Tab.Navigator>
 );
 
@@ -89,8 +109,8 @@ const TabNavigator = () => (
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <TabNavigator />
+    <NavigationContainer theme={navigationTheme}>
+      <AppNavigator />
     </NavigationContainer>
   );
 }

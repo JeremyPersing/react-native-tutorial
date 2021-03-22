@@ -6,7 +6,7 @@ import colors from "../config/colors";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
 
-function WelcomeScreen() {
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       source={require("../assets/background.jpg")}
@@ -21,13 +21,13 @@ function WelcomeScreen() {
       <View style={styles.buttonContainer}>
         <AppButton
           color={colors.primary}
-          navigationDestination="Login"
           title="LOGIN"
+          onPress={() => navigation.navigate("Login")}
         />
         <AppButton
           color={colors.secondary}
-          navigationDestination="Register"
           title="REGISTER"
+          onPress={() => navigation.navigate("Register")}
         />
       </View>
     </ImageBackground>
