@@ -1,12 +1,11 @@
 import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import Icon from "../components/Icon";
 import { ListItem, ListItemSeparator } from "../components/lists";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
-import MessagesScreen from "./MessagesScreen";
-import ListingDetailsScreen from "./ListingDetailsScreen";
 
 const options = [
   {
@@ -17,15 +16,16 @@ const options = [
     },
   },
   {
-    title: "My Messages",
     icon: {
       iconName: "email",
       bgColor: colors.secondary,
     },
+    navigationDestination: "Messages",
+    title: "My Messages",
   },
 ];
 
-function MyAccountScreen() {
+function MyAccountScreen({ navigation }) {
   return (
     <Screen style={styles.fullContainer}>
       <View style={styles.container}>
@@ -41,6 +41,7 @@ function MyAccountScreen() {
           keyExtractor={(options) => options.title}
           renderItem={({ item }) => (
             <ListItem
+              onPress={() => navigation.navigate(item.navigationDestination)}
               title={item.title}
               IconComponent={
                 <Icon name={item.icon.iconName} bgColor={item.icon.bgColor} />

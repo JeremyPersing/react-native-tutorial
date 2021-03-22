@@ -32,6 +32,7 @@ function ListingsScreen() {
             title={item.title}
             subTitle={"$" + item.price}
             style={styles.card}
+            navigationDestination={item.id}
             numberOfLines={1}
           ></Card>
         )}

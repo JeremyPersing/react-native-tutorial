@@ -5,14 +5,23 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import colors from "../config/colors";
 import AppText from "./AppText";
 
-function Card({ image, title, subTitle, style, ...otherProps }) {
+function Card({
+  image,
+  title,
+  subTitle,
+  style,
+  navigationDestination,
+  ...otherProps
+}) {
+  const navigation = useNavigation();
   return (
     <TouchableWithoutFeedback
-      onPress={() => navigation.navigate(navigationDestination)}
+      onPress={() => navigation.navigate(`${navigationDestination}`)}
     >
       <View style={[styles.card, style]}>
         <Image source={image} style={styles.image}></Image>
