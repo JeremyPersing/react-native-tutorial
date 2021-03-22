@@ -6,6 +6,7 @@ import Icon from "../components/Icon";
 import { ListItem, ListItemSeparator } from "../components/lists";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
+import routes from "../navigation/routes";
 
 const options = [
   {
@@ -20,7 +21,7 @@ const options = [
       iconName: "email",
       bgColor: colors.secondary,
     },
-    targetScreen: "Messages",
+    targetScreen: routes.MESSAGES,
     title: "My Messages",
   },
 ];
